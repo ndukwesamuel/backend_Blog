@@ -1,0 +1,56 @@
+step one => Install Django- Install django by giving following command-
+	  pip install django
+
+step two ===> Creating a Project
+        Lets’ check how to create a basic project using Django after you have installed it in your pc.
+
+        To initiate a project of Django on Your PC, open Terminal and Enter the following command
+            
+           ==  django-admin startproject projectName  ==
+
+
+
+ step  3  ==>A New Folder with name projectName will be created. To enter in the project using terminal enter command
+        cd projectName
+
+
+
+Python manage.py runserver
+
+
+_init_.py – It is a python package. It is invoked when the package or a module in the package is imported. We usually use this to execute package initialization code, for example for the initialization of package-level data.
+urls.py – In this file, we store all links of the project and functions to call.
+
+wsgi.py – This file is used in deploying the project in WSGI. It is used to help your Django application communicate with the webserver.
+
+
+
+CreateApp
+
+Creating an App
+Django is famous for its unique and fully managed app structure. For every functionality, an app can be created like a completely independent module. This article will take you through how to create a basic app and add functionalities using that app.
+
+To create a basic app in your Django project you need to go to directory containing manage.py and from there enter the command :
+
+
+===>  python manage.py startapp projectApp
+
+
+==>  python manage.py makemigrations
+==>  python manage.py migrate
+
+==> python manage.py createsuperuser  {allow the dev to login}
+
+inside the AppFOlder create a Folder called called templates
+
+
+
+Django is based on MVT (Model-View-Template) architecture. MVT is a software design pattern for developing a web application. 
+
+MVT Structure has the following three parts – 
+
+Model: The model is going to act as the interface of your data. It is responsible for maintaining data. It is the logical data structure behind the entire application and is represented by a database (generally relational databases such as MySql, Postgres). To check more, visit – Django Models 
+
+View: The View is the user interface — what you see in your browser when you render a website. It is represented by HTML/CSS/Javascript and Jinja files. To check more, visit – Django Views. 
+
+Template: A template consists of static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted. To check more, visit – Django Templates 
