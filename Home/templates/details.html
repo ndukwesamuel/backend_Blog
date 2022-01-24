@@ -5,10 +5,9 @@
 
 
     <h1> {{post.title}}</h1>
-
-    
-    <a href="{% url 'details'  post.pk %}"> <h1> {{post.title}}  </h1> </a> 
     <p> {{post.author}}</p>
     <p>{{post.body}}</p>
+
+    <a href="{% url 'blog_update' post.pk %}"> <button> edit</button></a>
 
 {% endblock content %}

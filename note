@@ -1,38 +1,20 @@
-dev3 branch 
+update 
 
-so we will be trying to do more thing in the form 
-in other to have full control of the for form.py
+we will be creating an update view
 
-forms.py {
-class Post_Form(ModelForm):
-    class Meta:
-        model= Post
-        fields= '__all__'
-        # exclude =  ['user']
-        widgets = {
-            'title':forms.TextInput(attrs={'class':'form-control'}),        
-            'author':forms.TextInput(attrs={'class': 'form-control'}),
-            'body':forms.Textarea(attrs={'class': 'form-control'}),
-            
-        }
-}
-
-views {
-        
-from .forms import Post_Form
-
-class BlogCreateView(CreateView):
+views{
+       class blog_update(UpdateView):
     model = Post
-    form_class = Post_Form
     template_name = "create.html"
+    form_class = Post_edit_Form
+    # fields = "__all__"
+
+ 
 }
 
-
-back to form {
-
-       
-
-class Post_Form(ModelForm):
+forms{
+        
+class Post_edit_Form(ModelForm):
     class Meta:
         model= Post
         fields= '__all__'
@@ -45,5 +27,12 @@ class Post_Form(ModelForm):
             'body': forms.Textarea(attrs={'class': 'form-control'}),
             
         }
- 
+
+}
+
+
+
+urls{
+    path('<int:pk>', Blog_details.as_view(), name='details'),
+
 }
