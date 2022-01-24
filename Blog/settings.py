@@ -125,6 +125,15 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+
+
+
+# AUTH_USER_MODEL = 'leads.User'
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/login"
+LOGOUT_REDIRECT_URL = "/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

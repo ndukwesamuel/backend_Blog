@@ -12,6 +12,8 @@ class Post(models.Model):
     # author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     author = models.CharField( max_length=50)
     body = models.TextField()
+    Date_field = models.DateField(auto_now_add=True)
+
 
 
     def __str__(self):

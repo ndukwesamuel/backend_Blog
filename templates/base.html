@@ -28,8 +28,18 @@
             <a class="nav-link" href="{% url 'create' %}">Create</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="{% url 'signup' %}">signup</a>
           </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">login</a>
+          </li>
+
+          <a href="{% url  'logout' %}"> logout</a>
+
+          <li> {{ request.user.username }}</li>
+
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li>
@@ -37,6 +47,9 @@
       </div>
     </div>
   </nav>
+
+
+
 
       {% block content %}
 
