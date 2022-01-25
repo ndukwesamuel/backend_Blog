@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .models import Post
 
 
 from .forms import Post_Form, Post_edit_Form
 
+from django.urls import reverse_lazy
 
 
 
@@ -37,6 +38,11 @@ class blog_update(UpdateView):
     form_class = Post_edit_Form
     # fields = "__all__"
 
+
+class Blog_DeleteView(DeleteView):
+    model = Post
+    template_name = "delete.html"
+    success_url = reverse_lazy('home')
 
 
 

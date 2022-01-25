@@ -1,11 +1,1 @@
-first we will be ordeering for the -id
-
-class HomeListView(ListView):
-    model = Post
-    template_name = "index.html"
-    ordering = ['-id']
-
-
-
-==> we will be adding the datafield
-
+we will be doing authentication at this point 
