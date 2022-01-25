@@ -5,25 +5,33 @@
 
 {% load static %}
 
+{% if cat_post %}
 
-{% for post in object_list %}
+<h1> Working </h1>
 
 
+<h1> {{ cat }} </h1> 
 
-<div style="border: 2px solid red;">
-    <a href="{% url 'category' post.categories %}"> <p>{{post.categories}}</p>   </a> 
+
+{% for post in cat_post %}
+
+    
     <a href="{% url 'details'  post.pk %}"> <h1> {{post.title}}  </h1>  <small> {{post.categories}} </small> </a> 
     <small> {{post.pk}} </small>
     <p> {{post.author}}</p>
     <p>{{post.Date_field}}</p>
-</div>
 
     
 
 {% endfor %}
 
 
+{% else%}
 
+<h1>  does not exist  </h1> 
+
+
+{% endif %}
 
 
 {% endblock content %}

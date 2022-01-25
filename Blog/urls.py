@@ -25,6 +25,8 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView
 )
 
+from Home.views import Cartigory
+
 from Member.views import SignupView
 
 
@@ -32,6 +34,10 @@ from Member.views import SignupView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  include('Home.urls')),
+
+    path('Cartigory/', Cartigory.as_view(), name='Cartigory'),
+
+
 
 
     # user authentication

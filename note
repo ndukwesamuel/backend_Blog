@@ -1,1 +1,64 @@
 we will be doing authentication at this point 
+
+
+we can add html into the post my telling it to be safe
+
+{{post.body|safe}}
+
+
+
+
+we will be adding categorieys to the blog
+
+
+we will have to create a model to handle this 
+
+
+class Categories(models.Model):
+    name = models.CharField(max_length=50)
+
+we have to update the forms.py to have catigory
+
+
+
+# choices = [('coding', 'coding' ),('peter', 'peter' ),] this is n
+
+class Post_Form(ModelForm):
+    class Meta:
+        model= Post
+        fields= '__all__'
+        # exclude =  ['user']
+
+ 
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'title here'}),        
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),
+            'categories':  forms.Select( choices=choices, attrs={'class': 'form-control'})
+        }
+
+
+
+we will have to do many to many relationship
+'categories':  forms.Select( attrs={'class': 'form-control'})  
+
+
+
+we will also be creating a page were if you click it will take you to just the categorie blog
+
+
+
+
+class Categories(models.Model):
+    name = models.CharField(max_length=50)
+
+    # class Meta:
+    #     verbose_name = _("")
+    #     verbose_name_plural = _("s")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('home')
+

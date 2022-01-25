@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Post
+from .models import Post, Categories
 
 
 from .forms import Post_Form, Post_edit_Form
@@ -43,6 +43,32 @@ class Blog_DeleteView(DeleteView):
     model = Post
     template_name = "delete.html"
     success_url = reverse_lazy('home')
+
+
+
+
+# admin part
+
+class Cartigory(CreateView):
+    model = Categories
+    # form_class = Post_Form
+    template_name = "createCat.html"
+    fields = "__all__"
+
+
+
+# we swiched to function base for categoriy
+
+def CategoryView(request, cat):
+
+    cat_post = Post.objects.filter(categories=cat)
+
+    context = {
+        'cat':cat,
+        'cat_post':cat_post
+    }
+    return render(request, 'categoryPage.html', context)
+
 
 
 
